@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "rn-test",
-    "slug": "rn-test",
+    "name": "rn-playground",
+    "slug": "rn-playground",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -10,7 +10,7 @@
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.zhaoyue11.rntest"
+      "bundleIdentifier": "com.xunv.rnplayground"
     },
     "android": {
       "adaptiveIcon": {

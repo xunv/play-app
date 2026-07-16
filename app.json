@@ -10,7 +10,10 @@
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.xunv.rnplayground"
+      "bundleIdentifier": "com.xunv.rnplayground",
+      "infoPlist": {
+        "CFBundleDisplayName": "测试场"
+      }
     },
     "android": {
       "adaptiveIcon": {

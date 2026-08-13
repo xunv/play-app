@@ -1,4 +1,5 @@
-import { ScrollView, StyleSheet, View } from 'react-native'
+import { useRouter } from 'expo-router'
+import { Pressable, ScrollView, StyleSheet, View } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
 import { ThemedText } from '@/components/ThemedText'
@@ -8,6 +9,7 @@ import { useThemeColor } from '@/hooks/useThemeColor'
 export default function ProfileScreen() {
   const insets = useSafeAreaInsets()
   const backgroundColor = useThemeColor({}, 'background')
+  const router = useRouter()
 
   return (
     <View
@@ -42,14 +44,28 @@ export default function ProfileScreen() {
           <ThemedText type="subtitle">我的足迹</ThemedText>
           <ThemedText>最近浏览过的商品记录</ThemedText>
         </ThemedView>
-        <ThemedView style={styles.section}>
+        <Pressable
+          onPress={() => router.push('/coupons')}
+          style={({ pressed }) => [
+            styles.section,
+            styles.linkable,
+            pressed && styles.pressed,
+          ]}
+        >
           <ThemedText type="subtitle">优惠券</ThemedText>
           <ThemedText>可用优惠券与红包</ThemedText>
-        </ThemedView>
-        <ThemedView style={styles.section}>
+        </Pressable>
+        <Pressable
+          onPress={() => router.push('/address-form')}
+          style={({ pressed }) => [
+            styles.section,
+            styles.linkable,
+            pressed && styles.pressed,
+          ]}
+        >
           <ThemedText type="subtitle">收货地址</ThemedText>
           <ThemedText>管理常用收货地址</ThemedText>
-        </ThemedView>
+        </Pressable>
         <ThemedView style={styles.section}>
           <ThemedText type="subtitle">我的评价</ThemedText>
           <ThemedText>待评价与历史评价</ThemedText>
@@ -104,5 +120,14 @@ const styles = StyleSheet.create({
   },
   section: {
     gap: 4,
+  },
+  linkable: {
+    paddingHorizontal: 8,
+    marginHorizontal: -8,
+    borderRadius: 8,
+  },
+  pressed: {
+    opacity: 0.7,
+    backgroundColor: 'rgba(128, 128, 128, 0.1)',
   },
 })
